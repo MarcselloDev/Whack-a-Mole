@@ -30,6 +30,10 @@ h1 {
   justify-content: center;
   border: black 3px solid;
 }
+.hole img{
+  object-fit: cover;
+  height: 100px;
+}
 .hole:active{
   opacity: 0.9;
 }
