@@ -15,5 +15,5 @@ A Whack-a-Mole game made in JavaScript
 
 ## License
 
-[MIT](https://github.com/MarcselloDev/PasswordGenerator/blob/main/LICENSE)
+[MIT](https://github.com/MarcselloDev/Whack-a-Mole/blob/main/LICENSE)
 # Contributions are always welcome!
