@@ -4,6 +4,9 @@ let score = 0
 let previousIndex = -1
 let moleTimer
 let gameStarted = false
+let highScore = localStorage.getItem('highScore') || 0
+
+document.getElementById('high-score').textContent = highScore;
 
 holes.forEach((hole, i) => {
   hole.addEventListener('click', () => {
@@ -11,6 +14,7 @@ holes.forEach((hole, i) => {
     if (index === i) {
       placeMole()
       score += 1
+      setHighScore()
       document.getElementById('score').textContent = score
     }
   });
@@ -22,6 +26,7 @@ document.querySelector('.stop-btn').addEventListener('click', () => {
 })
 
 document.querySelector('.start-btn').addEventListener('click', () => {
+  clearTimeout(moleTimer)
   startGame()
   gameStarted = true
 })
@@ -48,8 +53,17 @@ function startGame() {
 }
 
 function stopGame() {
+  placeMole()
   clearTimeout(moleTimer)
+  setHighScore()
   score = 0
   document.getElementById('score').textContent = score
-  placeMole()
+}
+
+function setHighScore() {
+  if (score > highScore) {
+    highScore = score
+    localStorage.setItem('highScore', highScore)
+    document.getElementById('high-score').textContent = highScore;
+  }
 }
